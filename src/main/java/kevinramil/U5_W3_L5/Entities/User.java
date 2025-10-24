@@ -10,7 +10,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
@@ -37,9 +39,6 @@ public class User implements UserDetails {
 
     @Column(name = "password")
     private String password;
-
-    @ManyToMany(mappedBy = "participants")
-    private Set<Evento> reservedEvento = new HashSet<>();
 
     // LISTA COSTRUTTORI
     public User(UserType userType, String name, String surname, String email, String password) {
